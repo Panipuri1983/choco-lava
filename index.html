@@ -3,56 +3,1260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Pooja T S R - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --accent: #c7956d;
+            --text: #2d2d2d;
+            --text-light: #666;
+            --bg: #fafaf8;
+            --card: #ffffff;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        
-        .container {
-            text-align: center;
-            background: white;
-            padding: 60px 80px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
         }
-        
-        h1 {
-            font-size: 48px;
-            color: #333;
-            margin: 0;
-            animation: fadeIn 1s ease-in;
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
         }
-        
-        p {
-            font-size: 18px;
-            color: #666;
-            margin-top: 20px;
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
         }
-        
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 8rem 2rem 6rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            animation: fadeIn 1s ease;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: fadeIn 1.4s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            animation: fadeIn 1.6s ease;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            margin-top: 3rem;
+            animation: fadeIn 1.8s ease;
+        }
+
+        .stat {
+            border-left: 2px solid var(--accent);
+            padding-left: 1.5rem;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            animation: fadeIn 2s ease;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .experience-card {
+            background: var(--card);
+            padding: 3rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease backwards;
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.4s ease;
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .experience-card:hover::before {
+            height: 100%;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .experience-card:nth-child(1) { animation-delay: 0.1s; }
+        .experience-card:nth-child(2) { animation-delay: 0.2s; }
+        .experience-card:nth-child(3) { animation-delay: 0.3s; }
+        .experience-card:nth-child(4) { animation-delay: 0.4s; }
+        .experience-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+            gap: 2rem;
+        }
+
+        .card-title-group h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .card-year {
+            font-weight: 600;
+            color: var(--accent);
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .card-description {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .highlights {
+            list-style: none;
+        }
+
+        .highlights li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        .highlights li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--card);
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-degree {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-score {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Professional Development Section */
+        .cert-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .cert-count-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .cert-count-badge::before {
+            content: '🎓';
+            margin-right: 0.5rem;
+        }
+
+        .cert-intro p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .cert-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            background: rgba(199, 149, 109, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--accent);
+        }
+
+        .category-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .category-count {
+            margin-left: auto;
+            background: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--card);
+            border: 2px solid rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(199, 149, 109, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cert-card:hover::before {
+            left: 100%;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent);
+        }
+
+        .cert-badge {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .cert-badge::after {
+            content: '✓';
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .cert-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+            min-height: 2.6rem;
+        }
+
+        .cert-institution {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-date {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .cert-card:hover h4 {
+            color: var(--accent);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card);
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: rgba(199, 149, 109, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(199, 149, 109, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .award-card {
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .award-card::before {
+            content: '★';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.1;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .award-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .award-org {
+            color: var(--accent);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .education-grid,
+            .skills-container,
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-header {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello World! 👋</h1>
-        <p>Welcome to your first webpage built with Claude</p>
-    </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Pooja T S R</div>
+            <ul>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-label">Master's Candidate in Management</div>
+        <div class="hero-content">
+            <h1>Pooja T S R</h1>
+            <p class="hero-subtitle">Founder, Entrepreneur & Strategic Leader</p>
+            <p style="font-size: 1.1rem; color: var(--text); max-width: 700px;">
+                Building technology solutions and leading teams to create meaningful impact. From founding a legal-tech startup processing 100,000+ queries to co-leading a profitable student venture generating ₹2.5 lakh, I bring entrepreneurial vision with execution excellence.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">98.9%</span>
+                    <span class="stat-label">XAT Percentile</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">8.3/10</span>
+                    <span class="stat-label">CGPA - Computer Science</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">21</span>
+                    <span class="stat-label">Professional Certifications</span>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#experience" class="btn btn-secondary">View Experience</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header">
+            <div class="section-label">Professional Journey</div>
+            <h2 class="section-title">Experience</h2>
+        </div>
+
+        <div class="experience-grid">
+            <!-- Legal Pro AI -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <h3>Founder - Legal Pro AI</h3>
+                        <p class="card-subtitle">Business & Product Strategy</p>
+                    </div>
+                    <div class="card-year">2025</div>
+                </div>
+                <p class="card-description">
+                    Conceptualized and built a legal-technology platform revolutionizing efficiency in case-law research, leading a distributed technical team through pilot development.
+                </p>
+                <ul class="highlights">
+                    <li>Platform processed <strong>1 lakh+ real user queries</strong> within six months during pilot</li>
+                    <li>Collected structured feedback from ~5 practicing advocates and provided backend access for testing</li>
+                    <li>Received a <strong>₹3 lakh acquisition offer</strong> from a legal records firm (declined)</li>
+                    <li>Led product strategy, user research, and cross-functional team coordination</li>
+                </ul>
+            </div>
+
+            <!-- AAVIN -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <h3>Student Entrepreneur - AAVIN</h3>
+                        <p class="card-subtitle">College Initiative</p>
+                    </div>
+                    <div class="card-year">2023 - 2025</div>
+                </div>
+                <p class="card-description">
+                    Co-led a 4-member founding team selected as the sole winning venture in a competitive college entrepreneurship program.
+                </p>
+                <ul class="highlights">
+                    <li>Invested ₹30,000 seed capital and generated <strong>~₹2.5 lakh net profit over 18 months</strong></li>
+                    <li>Jointly handled pricing strategy, sourcing, marketing campaigns, and daily operations</li>
+                    <li>Managed 1 full-time employee and introduced customizable product offerings</li>
+                    <li>Demonstrated strong demand before pausing due to supply chain constraints</li>
+                </ul>
+            </div>
+
+            <!-- Speakers Forum -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <h3>Student Mentor - Speakers Forum</h3>
+                        <p class="card-subtitle">Leadership & Communication Development</p>
+                    </div>
+                    <div class="card-year">2022 - 2025</div>
+                </div>
+                <p class="card-description">
+                    Mentored students through weekly sessions focused on English communication, public speaking, debate, and leadership development.
+                </p>
+                <ul class="highlights">
+                    <li>Mentored <strong>30 students across 3 batches</strong> through structured weekly sessions</li>
+                    <li>Designed specialized program for Tamil-medium government school students under 7.5% reservation</li>
+                    <li>Several mentees evolved into peer mentors themselves, creating sustainable impact</li>
+                    <li>Focused on building confidence, articulation, and leadership capabilities</li>
+                </ul>
+            </div>
+
+            <!-- NSS -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <h3>Lead Volunteer - NSS</h3>
+                        <p class="card-subtitle">National Service Scheme</p>
+                    </div>
+                    <div class="card-year">2022 - 2024</div>
+                </div>
+                <p class="card-description">
+                    Officially designated Lead Volunteer during two separate two-week NSS camps, coordinating large-scale community service initiatives.
+                </p>
+                <ul class="highlights">
+                    <li>Directly led <strong>200 volunteers</strong> within a cohort of 400 during intensive camps</li>
+                    <li>Worked with one underprivileged village and its government school</li>
+                    <li>Contributed to lake cleaning, fire safety, vaccine awareness, anti-tobacco campaigns, and livelihood initiatives</li>
+                    <li>Recognized with <strong>Outstanding NSS Volunteer Award</strong></li>
+                </ul>
+            </div>
+
+            <!-- Ashok Leyland -->
+            <div class="experience-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <h3>Analytics Intern - Ashok Leyland</h3>
+                        <p class="card-subtitle">Market & Digital Analytics (Commercial Vehicles)</p>
+                    </div>
+                    <div class="card-year">2024</div>
+                </div>
+                <p class="card-description">
+                    Conducted competitive analysis and digital engagement analytics in the commercial vehicle sector.
+                </p>
+                <ul class="highlights">
+                    <li>Performed competitive market analysis using publicly available data sources</li>
+                    <li>Analyzed digital engagement metrics including CTR and bounce rates</li>
+                    <li>Gained practical insights into digital analytics for marketing and strategic positioning</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background: #f5f5f3; margin: 0; max-width: 100%; padding: 6rem 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header">
+                <div class="section-label">Academic Background</div>
+                <h2 class="section-title">Education</h2>
+            </div>
+
+            <div class="education-grid">
+                <div class="education-card reveal">
+                    <h3>XAT 2026</h3>
+                    <p class="education-degree">Xavier Aptitude Test</p>
+                    <span class="education-score">98.9 Percentile</span>
+                </div>
+
+                <div class="education-card reveal">
+                    <h3>B.E. Computer Science</h3>
+                    <p class="education-degree">Sri Venkateswara College of Engineering (SVCE)</p>
+                    <span class="education-score">8.3 / 10 CGPA</span>
+                    <p style="margin-top: 1rem; color: var(--text-light);">Expected 2025</p>
+                </div>
+
+                <div class="education-card reveal">
+                    <h3>Secondary Education</h3>
+                    <p class="education-degree">P.S. Senior Secondary School (CBSE)</p>
+                    <span class="education-score">Class XII: 85%</span>
+                    <span class="education-score" style="margin-left: 0.5rem;">Class X: 86%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Development / Certifications Section -->
+    <section id="certifications">
+        <div class="cert-intro">
+            <div class="section-label">Continuous Learning</div>
+            <h2 class="section-title">Professional Development</h2>
+            <div class="cert-count-badge">21 Professional Certifications</div>
+            <p>Completed courses from world-leading institutions including Yale, Northwestern, Duke, University of Michigan, Wharton, Johns Hopkins, and Imperial College London.</p>
+        </div>
+
+        <!-- Leadership & Communication -->
+        <div class="cert-category reveal">
+            <div class="category-header">
+                <div class="category-icon">🎯</div>
+                <h3>Leadership & Communication</h3>
+                <span class="category-count">5 Courses</span>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-badge">📢</div>
+                    <h4>Leadership Communication for Maximum Impact</h4>
+                    <p class="cert-institution">Northwestern University</p>
+                    <p class="cert-date">June 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🤝</div>
+                    <h4>Leadership Through Social Influence</h4>
+                    <p class="cert-institution">Northwestern University</p>
+                    <p class="cert-date">July 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">💼</div>
+                    <h4>Successful Negotiation: Essential Strategies</h4>
+                    <p class="cert-institution">University of Michigan</p>
+                    <p class="cert-date">August 2021</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">💡</div>
+                    <h4>Creative Thinking: Techniques and Tools</h4>
+                    <p class="cert-institution">Imperial College London</p>
+                    <p class="cert-date">April 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🎨</div>
+                    <h4>Creative Problem Solving</h4>
+                    <p class="cert-institution">University of Minnesota</p>
+                    <p class="cert-date">June 2023</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business & Strategy -->
+        <div class="cert-category reveal">
+            <div class="category-header">
+                <div class="category-icon">📊</div>
+                <h3>Business & Strategy</h3>
+                <span class="category-count">5 Courses</span>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-badge">🏢</div>
+                    <h4>Corporate Strategy</h4>
+                    <p class="cert-institution">UCL School of Management, University of London</p>
+                    <p class="cert-date">August 2021</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">📈</div>
+                    <h4>Behavioral Finance</h4>
+                    <p class="cert-institution">Duke University</p>
+                    <p class="cert-date">August 2021</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">📖</div>
+                    <h4>Narrative Economics</h4>
+                    <p class="cert-institution">Yale University</p>
+                    <p class="cert-date">June 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">₿</div>
+                    <h4>Cryptocurrency and Blockchain</h4>
+                    <p class="cert-institution">Wharton School, University of Pennsylvania</p>
+                    <p class="cert-date">November 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">📋</div>
+                    <h4>Foundations of Project Management</h4>
+                    <p class="cert-institution">Google</p>
+                    <p class="cert-date">August 2021</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology & AI/ML -->
+        <div class="cert-category reveal">
+            <div class="category-header">
+                <div class="category-icon">🤖</div>
+                <h3>Technology & AI/ML</h3>
+                <span class="category-count">7 Courses</span>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-badge">🧠</div>
+                    <h4>AI, Empathy & Ethics</h4>
+                    <p class="cert-institution">UC Santa Cruz</p>
+                    <p class="cert-date">July 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🔬</div>
+                    <h4>Introduction to Artificial Intelligence</h4>
+                    <p class="cert-institution">IBM</p>
+                    <p class="cert-date">August 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">⚙️</div>
+                    <h4>Machine Learning for All</h4>
+                    <p class="cert-institution">University of London</p>
+                    <p class="cert-date">July 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🎯</div>
+                    <h4>Machine Learning: An Overview</h4>
+                    <p class="cert-institution">Politecnico di Milano</p>
+                    <p class="cert-date">June 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🐍</div>
+                    <h4>Programming for Everybody (Python)</h4>
+                    <p class="cert-institution">University of Michigan</p>
+                    <p class="cert-date">July 2021</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">📊</div>
+                    <h4>Python Data Structures</h4>
+                    <p class="cert-institution">University of Michigan</p>
+                    <p class="cert-date">August 2021</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🌐</div>
+                    <h4>Introduction to Internet of Things</h4>
+                    <p class="cert-institution">NPTEL</p>
+                    <p class="cert-date">April 2024</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Psychology & Social Impact -->
+        <div class="cert-category reveal">
+            <div class="category-header">
+                <div class="category-icon">🧘</div>
+                <h3>Psychology & Social Impact</h3>
+                <span class="category-count">4 Courses</span>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-badge">🧠</div>
+                    <h4>Introduction to Psychology</h4>
+                    <p class="cert-institution">Yale University</p>
+                    <p class="cert-date">April 2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🎯</div>
+                    <h4>Finding Purpose and Meaning In Life</h4>
+                    <p class="cert-institution">University of Michigan</p>
+                    <p class="cert-date">August 2021</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">✊</div>
+                    <h4>Feminism and Social Justice</h4>
+                    <p class="cert-institution">UC Santa Cruz</p>
+                    <p class="cert-date">August 2021</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">🏥</div>
+                    <h4>COVID-19 Contact Tracing</h4>
+                    <p class="cert-institution">Johns Hopkins University</p>
+                    <p class="cert-date">July 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background: #f5f5f3; margin: 0; max-width: 100%; padding: 6rem 2rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-header">
+                <div class="section-label">Capabilities</div>
+                <h2 class="section-title">Core Skills</h2>
+            </div>
+
+            <div class="skills-container">
+                <div class="skill-category reveal">
+                    <h3>Leadership & Management</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Team Coordination</span>
+                        <span class="skill-tag">Public Speaking</span>
+                        <span class="skill-tag">Mentoring</span>
+                        <span class="skill-tag">Negotiation</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h3>Business & Strategy</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Corporate Strategy</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Market Analytics</span>
+                        <span class="skill-tag">Creative Problem Solving</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h3>Technical & AI</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">AI/ML Concepts</span>
+                        <span class="skill-tag">Python Programming</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">AI Ethics</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h3>Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">English (Fluent)</span>
+                        <span class="skill-tag">Tamil (Native)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards">
+        <div class="section-header">
+            <div class="section-label">Recognition</div>
+            <h2 class="section-title">Awards & Achievements</h2>
+        </div>
+
+        <div class="awards-grid">
+            <div class="award-card reveal">
+                <h3>Outstanding NSS Volunteer Award</h3>
+                <p class="award-org">National Service Scheme</p>
+            </div>
+
+            <div class="award-card reveal">
+                <h3>ISTE Best Student Award</h3>
+                <p class="award-org">Indian Society for Technical Education</p>
+            </div>
+
+            <div class="award-card reveal">
+                <h3>Winner - NSS Debate</h3>
+                <p class="award-org">National Service Scheme</p>
+            </div>
+
+            <div class="award-card reveal">
+                <h3>Winner - Verbattle</h3>
+                <p class="award-org">Competitive Debate Championship</p>
+            </div>
+
+            <div class="award-card reveal">
+                <h3>Winner - Battle of Wits</h3>
+                <p class="award-org">Inter-College Competition</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-content">
+            <h2>Let's Connect</h2>
+            <p>I'm excited about pursuing a Master's in Management in Europe and connecting with like-minded individuals and institutions.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:poojatsr26@gmail.com" class="contact-link">poojatsr26@gmail.com</a>
+                <a href="tel:+919445538862" class="contact-link">+91 9445538862</a>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 1rem;">
+                📍 Chennai, Tamil Nadu, India
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Pooja T S R. Crafted for European Business School Applications.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 100;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+    </script>
 </body>
 </html>
